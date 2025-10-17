@@ -3,6 +3,7 @@ package com.book_service.book_service.service;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
+import com.book_service.book_service.dto.BookRequestDTO;
 import com.book_service.book_service.dto.BookResponseDTO;
 import com.book_service.book_service.mapper.BookMapper;
 import com.book_service.book_service.model.Book;
@@ -29,6 +30,13 @@ public class BookService {
 
         return bookDTOs;
         
+    }
+
+    public BookResponseDTO createBook(BookRequestDTO bookRequestDTO){
+        Book newBook = this.bookRepository.save(BookMapper.toEntity(bookRequestDTO));
+
+        return BookMapper.toDTO(newBook);
+
     }
 
 

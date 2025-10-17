@@ -1,10 +1,18 @@
 package com.book_service.book_service.dto;
 
+
 public class BookResponseDTO {
 
     private String id;
+    private String title;
+    private String author;
+    private String isbn;
+    private String publishedDate;
+    private String genre;
+    private String availableCopies;
+    private String contactEmail;
 
-
+    // Getters and Setters
     public String getId() {
         return id;
     }
@@ -13,17 +21,13 @@ public class BookResponseDTO {
         this.id = id;
     }
 
-    private String titel;
-    
-    public String getTitel() {
-        return titel;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitel(String titel) {
-        this.titel = titel;
+    public void setTitle(String title) {
+        this.title = title;
     }
-
-    private String author;
 
     public String getAuthor() {
         return author;
@@ -33,8 +37,6 @@ public class BookResponseDTO {
         this.author = author;
     }
 
-    private String isbn;
-
     public String getIsbn() {
         return isbn;
     }
@@ -43,17 +45,13 @@ public class BookResponseDTO {
         this.isbn = isbn;
     }
 
-    private String releaseDate;
-
-    public String getReleaseDate() {
-        return releaseDate;
+    public String getPublishedDate() {
+        return publishedDate;
     }
 
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
+    public void setPublishedDate(String publishedDate) {
+        this.publishedDate = publishedDate;
     }
-
-    private String genre;
 
     public String getGenre() {
         return genre;
@@ -63,16 +61,19 @@ public class BookResponseDTO {
         this.genre = genre;
     }
 
-    private String quantity;
-
-    public String getQuantity() {
-        return quantity;
+    public String getAvailableCopies() {
+        return availableCopies;
     }
 
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
+    public void setAvailableCopies(String availableCopies) {
+        this.availableCopies = availableCopies;
     }
 
+    public String getContactEmail() {
+        return contactEmail;
+    }
 
-
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
+    }
 }

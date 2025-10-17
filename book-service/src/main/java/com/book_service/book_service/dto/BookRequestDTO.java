@@ -1,56 +1,36 @@
-package com.book_service.book_service.model;
+package com.book_service.book_service.dto;
 
-import java.time.LocalDate;
-import java.util.UUID;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
-@Entity
-public class Book {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+public class BookRequestDTO {
 
-    @NotNull
+    @NotBlank(message = "Title is required")
+    @Size(max = 200, message = "Title cannot exceed 200 characters")
     private String title;
 
-    @NotNull
+    @NotBlank(message = "Author is required")
     private String author;
 
-    @NotNull
-    @Column(unique = true)
+    @NotBlank(message = "ISBN is required")
     private String isbn;
 
-    @NotNull
-    private LocalDate publishedDate;
+    @NotBlank(message = "Published date is required")
+    private String publishedDate;
 
-    @NotNull
+    @NotBlank(message = "Genre is required")
     private String genre;
 
-    @NotNull
-    private int availableCopies;
+    @Min(value = 0, message = "Available copies cannot be negative")
+    private String availableCopies;
 
-    @NotNull
-    @Email
+    @NotBlank(message = "Contact email is required")
+    @Email(message = "Contact email must be valid")
     private String contactEmail;
 
     // Getters and Setters
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -75,11 +55,11 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public LocalDate getPublishedDate() {
+    public String getPublishedDate() {
         return publishedDate;
     }
 
-    public void setPublishedDate(LocalDate publishedDate) {
+    public void setPublishedDate(String publishedDate) {
         this.publishedDate = publishedDate;
     }
 
@@ -91,11 +71,11 @@ public class Book {
         this.genre = genre;
     }
 
-    public int getAvailableCopies() {
+    public String getAvailableCopies() {
         return availableCopies;
     }
 
-    public void setAvailableCopies(int availableCopies) {
+    public void setAvailableCopies(String availableCopies) {
         this.availableCopies = availableCopies;
     }
 
